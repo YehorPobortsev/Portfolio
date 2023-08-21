@@ -1,6 +1,6 @@
+# Original dataset source: https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020
 # CREATING TABLES WITH IMPORT ISSUES (AFTER IMPORTING ONLY 1/10 OF ROWS HAVE BEEN IMPORTED, MANUALY CREATED TABLES SOLVE THIS PROBLEM) 
 # Creating lap_times table 
-
 CREATE TABLE lap_times (
 raceId INT,
 driverId INT,
