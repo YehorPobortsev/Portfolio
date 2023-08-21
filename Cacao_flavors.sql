@@ -1,3 +1,4 @@
+# Original dataset source: https://www.kaggle.com/datasets/rtatman/chocolate-bar-ratings
 # Top-rated chocolate bars based on average ratings
 
 SELECT 
