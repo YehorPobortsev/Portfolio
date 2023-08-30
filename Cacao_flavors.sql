@@ -11,11 +11,11 @@ ORDER BY rating DESC
 
 SELECT 
     CASE 
-		WHEN Cocoa_percentage > '0,81' AND Cocoa_percentage < '0.90' THEN '81-90 %'
-		WHEN Cocoa_percentage > '0,71' AND Cocoa_percentage < '0.80' THEN '71-80 %'
+	WHEN Cocoa_percentage > '0,81' AND Cocoa_percentage < '0.90' THEN '81-90 %'
+	WHEN Cocoa_percentage > '0,71' AND Cocoa_percentage < '0.80' THEN '71-80 %'
         WHEN Cocoa_percentage > '0,61' AND Cocoa_percentage <= '0.70' THEN '61-70 %'
-		WHEN Cocoa_percentage > '0,51' AND Cocoa_percentage <= '0.60' THEN '51-60 %'
-		WHEN Cocoa_percentage > '0,41' AND Cocoa_percentage < '0.50' THEN '41-50 %'
+	WHEN Cocoa_percentage > '0,51' AND Cocoa_percentage <= '0.60' THEN '51-60 %'
+	WHEN Cocoa_percentage > '0,41' AND Cocoa_percentage < '0.50' THEN '41-50 %'
         ELSE '90-100 %'
     END AS Percentage,
 	AVG (rating) AS Average_rating
@@ -37,14 +37,14 @@ ORDER BY rating DESC
 SELECT 
     DISTINCT Bar_Name,
     Case 
-		WHEN Cocoa_percentage = '1' THEN (Cocoa_percentage*100) 
+	WHEN Cocoa_percentage = '1' THEN (Cocoa_percentage*100) 
         ELSE CAST(REPLACE(Cocoa_percentage, ',', '') AS DECIMAL(5, 2)) 
-		END AS Cocoa_percentage
+	END AS Cocoa_percentage
 FROM flavors_of_cacao2
 ORDER BY Cocoa_percentage DESC
 
 SELECT 
-    DISTINCT Bar_Name,
+	DISTINCT Bar_Name,
 	Cocoa_percentage
 FROM flavors_of_cacao2
 ORDER BY Cocoa_percentage DESC
@@ -63,7 +63,7 @@ ORDER BY rating DESC
 SELECT
 	DISTINCT Broad_Bean_Origin,
 	ROUND((Count(*)/(Select COUNT(*)FROM flavors_of_cacao2))*100, 2) AS popularity_percentage,
-     AVG(Rating) AS Average_rating
+	AVG(Rating) AS Average_rating
 FROM flavors_of_cacao2
 GROUP BY Broad_Bean_Origin
 ORDER BY popularity_percentage DESC
@@ -73,11 +73,11 @@ ORDER BY popularity_percentage DESC
 SELECT 
 DISTINCT Broad_Bean_Origin,
     CASE 
-		WHEN Cocoa_percentage > '0,81' AND Cocoa_percentage < '0.90' THEN '81-90 %'
-		WHEN Cocoa_percentage > '0,71' AND Cocoa_percentage < '0.80' THEN '71-80 %'
+	WHEN Cocoa_percentage > '0,81' AND Cocoa_percentage < '0.90' THEN '81-90 %'
+	WHEN Cocoa_percentage > '0,71' AND Cocoa_percentage < '0.80' THEN '71-80 %'
         WHEN Cocoa_percentage > '0,61' AND Cocoa_percentage < '0.70' THEN '61-70 %'
-		WHEN Cocoa_percentage > '0,51' AND Cocoa_percentage < '0.60' THEN '51-60 %'
-		WHEN Cocoa_percentage > '0,41' AND Cocoa_percentage < '0.50' THEN '41-50 %'
+	WHEN Cocoa_percentage > '0,51' AND Cocoa_percentage < '0.60' THEN '51-60 %'
+	WHEN Cocoa_percentage > '0,41' AND Cocoa_percentage < '0.50' THEN '41-50 %'
         ELSE '90-100 %'
     END AS Percentage,
 	AVG (rating) AS Average_rating
@@ -90,13 +90,13 @@ ORDER BY Percentage
 SELECT 
 DISTINCT country,
     CASE 
-		WHEN Cocoa_percentage > '0,81' AND Cocoa_percentage < '0.90' THEN '81-90 %'
-		WHEN Cocoa_percentage > '0,71' AND Cocoa_percentage < '0.80' THEN '71-80 %'
+	WHEN Cocoa_percentage > '0,81' AND Cocoa_percentage < '0.90' THEN '81-90 %'
+	WHEN Cocoa_percentage > '0,71' AND Cocoa_percentage < '0.80' THEN '71-80 %'
         WHEN Cocoa_percentage > '0,61' AND Cocoa_percentage <= '0.70' THEN '61-70 %'
-		WHEN Cocoa_percentage > '0,51' AND Cocoa_percentage <= '0.60' THEN '51-60 %'
-		WHEN Cocoa_percentage > '0,41' AND Cocoa_percentage < '0.50' THEN '41-50 %'
+	WHEN Cocoa_percentage > '0,51' AND Cocoa_percentage <= '0.60' THEN '51-60 %'
+	WHEN Cocoa_percentage > '0,41' AND Cocoa_percentage < '0.50' THEN '41-50 %'
         ELSE '90-100 %'
-    END AS Percentage,
+	END AS Percentage,
 	AVG (rating) AS Average_rating
 FROM flavors_of_cacao2
 GROUP BY country, Percentage
